@@ -282,7 +282,9 @@
 			% Emblem and inscription of the university, and type of thesis.
 			{%
 				\heiti\bfseries\zihao{1}%
-				\includegraphics[height = 2.4em]{ucaslogo}\\[0.8em]{\cthesisname}%
+				\includegraphics[height = 2.4em]{caslogo}\hspace{0.35em}%
+				\raisebox{0.125em}{\includegraphics[height = 2.15em]{ucasword}}\\[0.8em]
+				{\cthesisname}%
 			}
 			\vfill
 			% Title of the thesis.
