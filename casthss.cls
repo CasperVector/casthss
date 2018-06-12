@@ -106,9 +106,9 @@
 	% Provides utility to modify footnote spacing.
 	% Option used to make sure it does not render interleaf pages totally blank.
 	\RequirePackage[cleardoublepage = current]{scrextend}
-	% Set up footnote spacing: symbol indent 1 ccwd, paragraph indent 2 ccwd,
-	% 0.5 ccwd between symbol and paragraph.
-	\deffootnote{\ccwd}{2\ccwd}{\thefootnotemark\hspace{0.5\ccwd}}
+	% Set up footnote spacing: paragraph indent 2 ccwd, 0.5 ccwd after mark.
+	\deffootnote[2\ccwd]{0pt}{2\ccwd}%
+		{\textsuperscript{\thefootnotemark}\hspace{0.5\ccwd}}
 	% Make spacing nicer in some situations (eg. footnotes and verbatims).
 	\RequirePackage{setspace}
 	% Lists often appear to be too sparse when items are just one or two lines
