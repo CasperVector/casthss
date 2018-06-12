@@ -22,36 +22,36 @@
 \ProvidesClass{casthss}
 	[2017/03/01 v1.7.4 Peking University dissertation document class]
 
-% eg. `\casthss@int@boolopt{spacing}{true}' will expand to:
-%   \newif\ifcasthss@opt@spacing \casthss@opt@spacingtrue
-%   \DeclareOption{spacing}{\casthss@opt@spacingtrue}
-%   \DeclareOption{nospacing}{\casthss@opt@spacingfalse}
-\def\casthss@int@boolopt#1#2{
-	\expandafter\newif\csname ifcasthss@opt@#1\endcsname
-	\@nameuse{casthss@opt@#1#2}
-	\DeclareOption{#1}{\@nameuse{casthss@opt@#1true}}
-	\DeclareOption{no#1}{\@nameuse{casthss@opt@#1false}}
+% eg. `\thss@int@boolopt{spacing}{true}' will expand to:
+%   \newif\ifthss@opt@spacing \thss@opt@spacingtrue
+%   \DeclareOption{spacing}{\thss@opt@spacingtrue}
+%   \DeclareOption{nospacing}{\thss@opt@spacingfalse}
+\def\thss@int@boolopt#1#2{
+	\expandafter\newif\csname ifthss@opt@#1\endcsname
+	\@nameuse{thss@opt@#1#2}
+	\DeclareOption{#1}{\@nameuse{thss@opt@#1true}}
+	\DeclareOption{no#1}{\@nameuse{thss@opt@#1false}}
 }
 % Whether to enable `\Uppercase' (works problematically) in heading marks.
-\casthss@int@boolopt{uppermark}{false}
+\thss@int@boolopt{uppermark}{false}
 % Whether to modify fonts according to school regulation.
-\casthss@int@boolopt{casfont}{true}
+\thss@int@boolopt{casfont}{true}
 % Whether to modify spacing according to school regulation.
-\casthss@int@boolopt{casspace}{true}
+\thss@int@boolopt{casspace}{true}
 % Whether to use some common settings for adjusting spacing.
-\casthss@int@boolopt{spacing}{true}
+\thss@int@boolopt{spacing}{true}
 % Add PDF bookmark for table of contents.
-\casthss@int@boolopt{pdftoc}{true}
+\thss@int@boolopt{pdftoc}{true}
 % Whether to automatically set up properties for generated PDF from user
 % defined document information (author, title, etc.).
-\casthss@int@boolopt{pdfprop}{true}
+\thss@int@boolopt{pdfprop}{true}
 % Pass all other options to `ctexbook' document class.
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexbook}}
 % Process all class options now.
 \ProcessOptions\relax
 
 % Prevent fontspec (loaded by xeCJK) from interfering with newtxmath.
-\ifcasthss@opt@casfont\PassOptionsToPackage{no-math}{fontspec}\fi
+\ifthss@opt@casfont\PassOptionsToPackage{no-math}{fontspec}\fi
 % casthss is based on ctexbook; we use `xiao 4' as default font size.
 \LoadClass[UTF8, zihao = -4]{ctexbook}[2014/03/06]
 % ctex 2.x no longer loads ifpdf and ifxetex by itself.
@@ -72,14 +72,14 @@
 \AtEndOfClass{\RequirePackage{hyperref}}
 \input{casthss.def}
 
-\ifcasthss@opt@casfont
+\ifthss@opt@casfont
 	% Use Times New Roman / Arial according to school regulation.
 	% Option used to prevent newtxtext from manipulating footnote marks.
 	\RequirePackage[defaultsups]{newtxtext}
 	\RequirePackage[cmintegrals, varg]{newtxmath}
 \fi
 
-\ifcasthss@opt@casspace
+\ifthss@opt@casspace
 	% lineskip / baselineskip = 20 bp / (12 bp * (6 / 5)).
 	\linespread{1.39}\selectfont
 	% Provides utilities for setting TOC format; `titles' applied to avoid
@@ -102,7 +102,7 @@
 	\captionsetup{font = bfive, labelsep = quad}
 \fi
 
-\ifcasthss@opt@spacing
+\ifthss@opt@spacing
 	% Provides utility to modify footnote spacing.
 	% Option used to make sure it does not render interleaf pages totally blank.
 	\RequirePackage[cleardoublepage = current]{scrextend}
@@ -118,16 +118,16 @@
 \fi
 
 \AtBeginDocument{
-	\ifcasthss@opt@pdftoc
+	\ifthss@opt@pdftoc
 		% Add PDF bookmark for table of contents.
-		\let\casthss@tmp@tableofcontents\tableofcontents
+		\let\thss@tmp@tableofcontents\tableofcontents
 		\renewcommand{\tableofcontents}{%
-			\casthss@int@pdfmark{\contentsname}{contents}
-			\casthss@tmp@tableofcontents%
+			\thss@int@pdfmark{\contentsname}{contents}
+			\thss@tmp@tableofcontents%
 		}
 	\fi
 
-	\ifcasthss@opt@pdfprop
+	\ifthss@opt@pdfprop
 		% Automatically generate properties for generated PDF.
 		% Use English properties to avoid problems with character encodings.
 		\newcommand*{\setpdfproperties}{%
@@ -138,50 +138,50 @@
 		}
 		% Set up the properties when generating the title page because the document
 		% information should have been all defined before this.
-		\let\casthss@tmp@maketitle\maketitle
-		% NOTE: `\hypersetup' must appear before `\maketitle', otherwise it might not
-		% act as expected.
-		\renewcommand\maketitle{\setpdfproperties\casthss@tmp@maketitle}
+		\let\thss@tmp@maketitle\maketitle
+		% NOTE: `\hypersetup' must appear before `\maketitle', otherwise it might
+		% not act as expected.
+		\renewcommand\maketitle{\setpdfproperties\thss@tmp@maketitle}
 	\fi
 }
 
-% eg. `\casthss@int@infoitema{ctitle}' will expand to:
+% eg. `\thss@int@infoitema{ctitle}' will expand to:
 %   \def\ctitle#1{\def\@ctitle{#1}}
-%   \define@key{casthss@info}{ctitle}{\ctitle{#1}}
-\def\casthss@int@infoitema#1{
+%   \define@key{thss@info}{ctitle}{\ctitle{#1}}
+\def\thss@int@infoitema#1{
 	\@namedef{#1}##1{\@namedef{@#1}{##1}}
-	\define@key{casthss@info}{#1}{\@nameuse{#1}{##1}}
+	\define@key{thss@info}{#1}{\@nameuse{#1}{##1}}
 }
-% eg. `\casthss@int@infoitemb{cthesisname}' will expand to:
-%   \define@key{casthss@info}{cthesisname}{\def\cthesisname{#1}}
-\def\casthss@int@infoitemb#1{
-	\define@key{casthss@info}{#1}{\@namedef{#1}{##1}}
+% eg. `\thss@int@infoitemb{cthesisname}' will expand to:
+%   \define@key{thss@info}{cthesisname}{\def\cthesisname{#1}}
+\def\thss@int@infoitemb#1{
+	\define@key{thss@info}{#1}{\@namedef{#1}{##1}}
 }
 % Set up document information entries.
-\casthss@int@infoitema{ctitle}
-\casthss@int@infoitema{etitle}
-\casthss@int@infoitema{cauthor}
-\casthss@int@infoitema{eauthor}
-\casthss@int@infoitema{cdate}
-\casthss@int@infoitema{edate}
-\casthss@int@infoitema{cmentor}
-\casthss@int@infoitema{ementor}
-\casthss@int@infoitema{cdegree}
-\casthss@int@infoitema{edegree}
-\casthss@int@infoitema{cmajor}
-\casthss@int@infoitema{emajor}
-\casthss@int@infoitema{cschool}
-\casthss@int@infoitema{eschool}
-\casthss@int@infoitema{mentorlines}
-\casthss@int@infoitema{confidential}
-\casthss@int@infoitema{ckeywords}
-\casthss@int@infoitema{ekeywords}
-\casthss@int@infoitemb{cthesisname}
-\casthss@int@infoitemb{ethesisname}
-\casthss@int@infoitemb{cabstractname}
-\casthss@int@infoitemb{eabstractname}
+\thss@int@infoitema{ctitle}
+\thss@int@infoitema{etitle}
+\thss@int@infoitema{cauthor}
+\thss@int@infoitema{eauthor}
+\thss@int@infoitema{cdate}
+\thss@int@infoitema{edate}
+\thss@int@infoitema{cmentor}
+\thss@int@infoitema{ementor}
+\thss@int@infoitema{cdegree}
+\thss@int@infoitema{edegree}
+\thss@int@infoitema{cmajor}
+\thss@int@infoitema{emajor}
+\thss@int@infoitema{cschool}
+\thss@int@infoitema{eschool}
+\thss@int@infoitema{mentorlines}
+\thss@int@infoitema{confidential}
+\thss@int@infoitema{ckeywords}
+\thss@int@infoitema{ekeywords}
+\thss@int@infoitemb{cthesisname}
+\thss@int@infoitemb{ethesisname}
+\thss@int@infoitemb{cabstractname}
+\thss@int@infoitemb{eabstractname}
 % Set up document information using the `key = value' grammar.
-\newcommand*{\casthssinfo}[1]{\setkeys{casthss@info}{#1}}
+\newcommand*{\casthssinfo}[1]{\setkeys{thss@info}{#1}}
 
 % Set up page layout.
 \geometry{
@@ -218,13 +218,13 @@
 % `\MakeUppercase' works problematically.
 % eg. it converts `\cite{ctex}' into `\cite{CTEX}'.
 % This option can disable `\MakeUppercase' in left/right heading marks.
-\ifcasthss@opt@uppermark
-	\def\casthss@int@setcase#1{#1}
+\ifthss@opt@uppermark
+	\def\thss@int@setcase#1{#1}
 \else
 	% Code copied from fancyhdr's `\nouppercase', with the redefinition of
 	% `\uppercase' dropped to avoid disrupting CJKutf8.
 	% cf. <https://code.google.com/p/ctex-kit/issues/detail?id=147>.
-	\def\casthss@int@setcase#1{%
+	\def\thss@int@setcase#1{%
 		\let\MakeUppercase\relax%
 		\expandafter\let\csname MakeUppercase \endcsname\relax%
 		#1%
@@ -234,41 +234,41 @@
 \fancypagestyle{plain}{
 	\fancyhf{}\renewcommand*{\headrulewidth}{0.5bp}
 	\fancyhead[CE]{\zihao{-5}\normalfont{\@ctitle}}
-	\fancyhead[CO]{\zihao{-5}\normalfont\casthss@int@setcase{\leftmark}}
+	\fancyhead[CO]{\zihao{-5}\normalfont\thss@int@setcase{\leftmark}}
 }
 \pagestyle{plain}
 
 % This places a bookmark pointing to somewhere near the page header;
 % Result of simple `\chapter{...} \pdfbookmark{...}' does not look nice,
 % because the bookmark will point to somewhere below the chapter mark.
-\def\casthss@int@pdfmark#1#2{%
+\def\thss@int@pdfmark#1#2{%
 	\if@openright\cleardoublepage\else\clearpage\fi
 	\pdfbookmark[0]{#1}{#2}%
 }
 
-% Usage: \casthss@int@fillinblank{(number of lines)}{(line width)}{(contents)}
-\def\casthss@int@fillinblank#1#2#3{%
+% Usage: \thss@int@fillinblank{(number of lines)}{(line width)}{(contents)}
+\def\thss@int@fillinblank#1#2#3{%
 	\makebox[0pt][l]{\parbox[t]{#2}{\centering{#3}}}\mbox{}%
 	\parbox[t]{#2}{%
-		\newcount\casthss@tmp@linecount
-		\casthss@tmp@linecount=#1
-		\loop\ifnum\casthss@tmp@linecount>0
+		\newcount\thss@tmp@linecount
+		\thss@tmp@linecount=#1
+		\loop\ifnum\thss@tmp@linecount>0
 			% Fill specified space with underline on the bottom line. `\underline'
 			% draws line on the baseline (not the bottom line), and this is why
 			% `\uline' is used here instead.
-			\ifnum\casthss@tmp@linecount=1
+			\ifnum\thss@tmp@linecount=1
 				\uline{\makebox[#2]{}}
 			\else
 				\uline{\makebox[#2]{}}\\
 			\fi
-		\advance\casthss@tmp@linecount by -1\relax
+		\advance\thss@tmp@linecount by -1\relax
 		\repeat%
 	}%
 }
 
 % Set up format of the title page (cover).
 \renewcommand{\maketitle}{%
-	\casthss@int@pdfmark{\ctitlepagename}{ctitlepage}
+	\thss@int@pdfmark{\ctitlepagename}{ctitlepage}
 	\begin{titlepage}
 		% It will be nicer to use this line skip level in the title page.
 		\linespread{1.6}\selectfont
@@ -289,7 +289,7 @@
 			\vfill
 			% Title of the thesis.
 			{%
-				\heiti\bfseries\zihao{3}\casthss@int@fillinblank%
+				\heiti\bfseries\zihao{3}\thss@int@fillinblank%
 					{2}{0.84\textwidth}{{\@ctitle}}%
 			}
 			\vfill
@@ -297,19 +297,19 @@
 			{%
 				% Slightly adjust the line skip when using new font size.
 				\songti\bfseries\zihao{4}\linespread{1.75}\selectfont
-				\def\casthss@tmp@len{0.75\textwidth}
+				\def\thss@tmp@len{0.75\textwidth}
 				\begin{tabular}{l@{\extracolsep{0.2em}}c}
 					{\label@cauthor}	&
-					\casthss@int@fillinblank{1}{\casthss@tmp@len}{\@cauthor}	\\
+					\thss@int@fillinblank{1}{\thss@tmp@len}{\@cauthor}	\\
 					{\label@cmentor}	&
-					\casthss@int@fillinblank{\@mentorlines}%
-						{\casthss@tmp@len}{\@cmentor}	\\\\[-1.75em]
+					\thss@int@fillinblank{\@mentorlines}%
+						{\thss@tmp@len}{\@cmentor}	\\\\[-1.75em]
 					{\label@cdegree}	&
-					\casthss@int@fillinblank{1}{\casthss@tmp@len}{\@cdegree}	\\
+					\thss@int@fillinblank{1}{\thss@tmp@len}{\@cdegree}	\\
 					{\label@cmajor}		&
-					\casthss@int@fillinblank{1}{\casthss@tmp@len}{\@cmajor}		\\
+					\thss@int@fillinblank{1}{\thss@tmp@len}{\@cmajor}		\\
 					{\label@cschool}	&
-					\casthss@int@fillinblank{1}{\casthss@tmp@len}{\@cschool}	\\
+					\thss@int@fillinblank{1}{\thss@tmp@len}{\@cschool}	\\
 				\end{tabular}%
 			}
 			\vfill
@@ -320,7 +320,7 @@
 }
 
 \newcommand{\emaketitle}{%
-	\casthss@int@pdfmark{Title page}{etitlepage}
+	\thss@int@pdfmark{Title page}{etitlepage}
 	\begin{center}
 		\bfseries\zihao{4}
 		{\zihao{3}\underline{\@etitle}}
@@ -345,7 +345,7 @@
 
 % Typeset the Chinese abstract.
 \newenvironment{cabstract}{%
-	\casthss@int@pdfmark{\cabstractname}{cabstract}
+	\thss@int@pdfmark{\cabstractname}{cabstract}
 	\chapter*{\cabstractname}\markboth{\cabstractname}{}%
 }{%
 	\par\mbox{}\par
@@ -354,7 +354,7 @@
 
 % Typeset the English abstract.
 \newenvironment{eabstract}{%
-	\casthss@int@pdfmark{Abstract}{eabstract}
+	\thss@int@pdfmark{Abstract}{eabstract}
 	\chapter*{Abstract}\markboth{Abstract}{}%
 }{%
 	\par\mbox{}\par
