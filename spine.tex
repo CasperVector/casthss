@@ -1,0 +1,33 @@
+\documentclass[zihao = -4]{ctexart}
+\usepackage{calc, geometry, graphicx}
+\pagestyle{empty}
+\newlength{\colpad}
+\newcommand{\colwidth}{\ccwd}
+
+\geometry{paperwidth = 440mm, paperheight = 297mm, margin = 0cm}
+\newcommand{\miniwidth}{210mm}
+\newcommand{\logowidth}{100mm}
+\newcommand{\vertmargin}{30mm}
+\setlength{\colpad}{(10mm - \colwidth) / 2}
+
+\begin{document}
+\centering
+\begin{minipage}[b][\textheight][b]{\miniwidth}
+	\vspace*{\fill}\par
+	\centerline{\includegraphics[width = \logowidth]{caslogo}}\par
+	\vspace*{\fill}\par
+\end{minipage}
+\hspace{\colpad}
+\begin{minipage}[b][\textheight][b]{\colwidth}
+	\bfseries\linespread{1}\selectfont
+	\vspace*{\vertmargin}\par
+	家猪品系筛选的基因筛选及功能鉴定\par\vfill
+	李四\par{\vfill}中国科学院大学\par
+	\vspace*{\vertmargin}\par
+\end{minipage}
+\hspace{\colpad}
+\begin{minipage}[b][\textheight][b]{\miniwidth}
+	\includegraphics[height = \textheight, page = 1]{thesis}
+\end{minipage}
+\end{document}
+
