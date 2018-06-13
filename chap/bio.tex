@@ -4,7 +4,7 @@
 \chapter{作者简历和研究成果目录}
 
 \section*{作者简历}
-\begin{itemize}
+\begin{itemize}[leftmargin = \parindent]
 \item 2008 年 9 月 -- 2009 年 8 月在某某大学某学部某学院学习。
 \item 2009 年 9 月 -- 2013 年 8 月在某某大学某某与某某某某学院获得学士学位。
 \item 2013 年 9 月 -- 2014 年 8 月在家报考中国科学院某某研究所。
@@ -12,17 +12,20 @@
 \end{itemize}
 
 \section*{已发表或正式接受的学术论文}
-% refsection、\nocite 和 section = ... 的用法请参考 biblatex 的文档。
+% \defbibenvironment、\nocite 和 refsection 的用法请参考 biblatex 的文档。
+\defbibenvironment{publications}%
+	{\begin{itemize}[leftmargin = \parindent]}{\end{itemize}}{\item}
 \begin{refsection}
+\renewcommand*{\bibfont}{}
 \nocite{myself}
-\printbibliography[heading = none, section = 1]
+\printbibliography[heading = none, env = publications]
 \end{refsection}
 
 % 无专利时不必列出。
 % \section*{申请或已获得的专利}
 
 \section*{参加的研究项目及获奖情况}
-\begin{itemize}
+\begin{itemize}[leftmargin = \parindent]
 \item 参与某某研究项目。
 \end{itemize}
 
