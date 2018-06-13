@@ -12,13 +12,15 @@
 \end{itemize}
 
 \section*{已发表或正式接受的学术论文}
-% \defbibenvironment、\nocite 和 refsection 的用法请参考 biblatex 的文档。
+% \defbibenvironment、\nocite、refsection、refcontext 的用法参考 biblatex 文档。
 \defbibenvironment{publications}%
 	{\begin{itemize}[leftmargin = \parindent]}{\end{itemize}}{\item}
 \begin{refsection}
 \renewcommand*{\bibfont}{}
 \nocite{myself}
+\begin{refcontext}[sorting = none]
 \printbibliography[heading = none, env = publications]
+\end{refcontext}
 \end{refsection}
 
 % 无专利时不必列出。
