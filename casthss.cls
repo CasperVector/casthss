@@ -186,7 +186,7 @@
 % Set up page layout.
 \geometry{
 	a4paper, hmargin = 3.17cm, vmargin = 2.54cm,
-	headheight = 0.8cm, headsep = 0.24cm, footskip = 1.04cm
+	headheight = 0.4cm, headsep = 0.64cm, footskip = 0.75cm
 }
 
 % Set up spacing for displayed formulae.
