@@ -64,7 +64,7 @@
 \RequirePackage{geometry}
 % fancyhdr provides utilities for setting up headers and footers.
 \RequirePackage{fancyhdr}
-% Provides `\uline' used in `\maketitle'.
+% Provides `\uline' used in `\maketitle' and `\emaketitle'.
 \RequirePackage{ulem}
 % Provides `\multirow' used in `\emaketitle'.
 \RequirePackage{multirow}
@@ -323,7 +323,7 @@
 	\thss@int@pdfmark{Title page}{etitlepage}
 	\begin{center}
 		\bfseries\zihao{4}
-		{\zihao{3}\underline{\@etitle}}
+		{\zihao{3}\uline{\@etitle}}
 		\vfill
 		{%
 			A {\ethesisname} submitted to\\
