@@ -348,7 +348,7 @@
 	\thss@int@pdfmark{\cabstractname}{cabstract}
 	\chapter*{\cabstractname}\markboth{\cabstractname}{}%
 }{%
-	\par\mbox{}\par
+	\par\vspace{\baselineskip}
 	\noindent\textbf{\label@ckeywords}{\@ckeywords}%
 }
 
@@ -357,7 +357,7 @@
 	\thss@int@pdfmark{Abstract}{eabstract}
 	\chapter*{Abstract}\markboth{Abstract}{}%
 }{%
-	\par\mbox{}\par
+	\par\vspace{\baselineskip}
 	\noindent\textbf{Keywords:\ }{\@ekeywords}%
 }
 
