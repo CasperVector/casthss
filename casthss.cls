@@ -200,7 +200,7 @@
 \setcounter{tocdepth}{2}
 \ctexset{
 	chapter = {
-		beforeskip = {0bp}, afterskip = {18bp},
+		beforeskip = {0bp}, afterskip = {18bp plus 0.2ex},
 		number = \arabic{chapter}, nameformat = {}, titleformat = {},
 		format = {\zihao{4}\bfseries\heiti\centering}
 	}, section = {
