@@ -80,8 +80,7 @@
 \fi
 
 \ifthss@opt@casspace
-	% lineskip / baselineskip = 20 bp / (12 bp * (6 / 5)).
-	\linespread{1.39}\selectfont
+	\linespread{1.52}\selectfont
 	% Provides utilities for setting TOC format; `titles' applied to avoid
 	% interfering with LaTeX's own title mechanism.
 	\RequirePackage[titles]{tocloft}
@@ -186,8 +185,8 @@
 
 % Set up page layout.
 \geometry{
-	a4paper, hmargin = 3.17cm, top = 2.54cm, bottom = 2.64cm,
-	headheight = 0.4cm, headsep = 0.64cm, footskip = 1cm
+	a4paper, hmargin = 3.17cm, top = 2.54cm, bottom = 2.65cm,
+	headheight = 0.4cm, headsep = 0.64cm, footskip = 1.12cm
 }
 
 % Set up spacing for displayed formulae.
@@ -270,60 +269,55 @@
 % Set up format of the title page (cover).
 \renewcommand{\maketitle}{%
 	\thss@int@pdfmark{\ctitlepagename}{ctitlepage}
-	\begin{titlepage}
-		% It will be nicer to use this line skip level in the title page.
-		\linespread{1.6}\selectfont
-		% Make the title page centered.
-		\begin{center}
-			% Confidential level (if any).
-			\unless\ifx\@confidential\empty{%
-				\raggedleft\heiti\bfseries\zihao{3}{\label@confidential}%
-				\uline{\@confidential}\vspace{\stretch{0.5}}\par%
-			}\fi%
-			% Emblem and inscription of the university, and type of thesis.
-			{%
-				\heiti\bfseries\zihao{1}%
-				\includegraphics[height = 2.4em]{caslogo}\hspace{0.35em}%
-				\raisebox{0.125em}{\includegraphics[height = 2.15em]{ucasword}}\\[0.8em]
-				{\cthesisname}%
-			}
-			\vfill
-			% Title of the thesis.
-			{%
-				\heiti\bfseries\zihao{3}\thss@int@fillinblank%
-					{2}{0.84\textwidth}{{\@ctitle}}%
-			}
-			\vfill
-			% Information about the author.
-			{%
-				% Slightly adjust the line skip when using new font size.
-				\songti\bfseries\zihao{4}\linespread{1.75}\selectfont
-				\def\thss@tmp@len{0.75\textwidth}
-				\begin{tabular}{l@{\extracolsep{0.2em}}c}
-					{\label@cauthor}	&
-					\thss@int@fillinblank{1}{\thss@tmp@len}{\@cauthor}	\\
-					{\label@cmentor}	&
-					\thss@int@fillinblank{\@mentorlines}%
-						{\thss@tmp@len}{\@cmentor}	\\\\[-1.75em]
-					{\label@cdegree}	&
-					\thss@int@fillinblank{1}{\thss@tmp@len}{\@cdegree}	\\
-					{\label@cmajor}		&
-					\thss@int@fillinblank{1}{\thss@tmp@len}{\@cmajor}		\\
-					{\label@cschool}	&
-					\thss@int@fillinblank{1}{\thss@tmp@len}{\@cschool}	\\
-				\end{tabular}%
-			}
-			\vfill
-			% Date.
-			{\songti\bfseries\zihao{4}\@cdate}
-		\end{center}
-	\end{titlepage}%
+	% Make the title page centered.
+	\begin{titlepage}\begin{center}
+		% Confidential level (if any).
+		\unless\ifx\@confidential\empty{%
+			\raggedleft\heiti\bfseries\zihao{3}{\label@confidential}%
+			\uline{\@confidential}\vspace{\stretch{0.5}}\par%
+		}\fi%
+		% Emblem and inscription of the university, and type of thesis.
+		{%
+			\heiti\bfseries\zihao{1}%
+			\includegraphics[height = 2.4em]{caslogo}\hspace{0.35em}%
+			\raisebox{0.125em}{\includegraphics[height = 2.15em]{ucasword}}\\[0.9em]
+			{\cthesisname}%
+		}
+		\vfill
+		% Title of the thesis.
+		{%
+			\heiti\bfseries\zihao{3}\linespread{1.75}\selectfont
+			\thss@int@fillinblank{2}{0.84\textwidth}{{\@ctitle}}%
+		}
+		\vfill
+		% Information about the author.
+		{%
+			\songti\bfseries\zihao{4}\linespread{1.9}\selectfont
+			\def\thss@tmp@len{0.75\textwidth}
+			\begin{tabular}{l@{\extracolsep{0.2em}}c}
+				{\label@cauthor}	&
+				\thss@int@fillinblank{1}{\thss@tmp@len}{\@cauthor}	\\
+				{\label@cmentor}	&
+				\thss@int@fillinblank{\@mentorlines}%
+					{\thss@tmp@len}{\@cmentor}	\\\\[-1.75em]
+				{\label@cdegree}	&
+				\thss@int@fillinblank{1}{\thss@tmp@len}{\@cdegree}	\\
+				{\label@cmajor}		&
+				\thss@int@fillinblank{1}{\thss@tmp@len}{\@cmajor}		\\
+				{\label@cschool}	&
+				\thss@int@fillinblank{1}{\thss@tmp@len}{\@cschool}	\\
+			\end{tabular}%
+		}
+		\vfill
+		% Date.
+		{\songti\bfseries\zihao{4}\@cdate}
+	\end{center}\end{titlepage}%
 }
 
 \newcommand{\emaketitle}{%
 	\thss@int@pdfmark{Title page}{etitlepage}
 	\begin{center}
-		\bfseries\zihao{4}
+		\bfseries\zihao{4}\linespread{1.9}\selectfont
 		{\zihao{3}\uline{\@etitle}}
 		\vfill
 		{%
