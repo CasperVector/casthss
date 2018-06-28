@@ -230,7 +230,7 @@
 \fi
 % The actual fage style setup.
 \fancypagestyle{plain}{
-	\fancyhf{}\renewcommand*{\headrulewidth}{0.5bp}
+	\fancyhf{}
 	\fancyhead[CE]{\zihao{-5}\normalfont{\@ctitle}}
 	\fancyhead[CO]{\zihao{-5}\normalfont\thss@int@setcase{\leftmark}}
 }
