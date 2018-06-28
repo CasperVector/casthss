@@ -118,6 +118,10 @@
 \fi
 
 \AtBeginDocument{
+	% Set up spacing for displayed formulae.
+	\setlength{\abovedisplayskip}{\belowdisplayshortskip}
+	\setlength{\belowdisplayskip}{\abovedisplayskip}
+
 	\ifthss@opt@pdftoc
 		% Add PDF bookmark for table of contents.
 		\let\thss@tmp@tableofcontents\tableofcontents
@@ -188,12 +192,6 @@
 	a4paper, hmargin = 3.17cm, top = 2.54cm, bottom = 2.65cm,
 	headheight = 0.4cm, headsep = 0.64cm, footskip = 1.12cm
 }
-
-% Set up spacing for displayed formulae.
-\setlength{\abovedisplayskip}{6bp plus 1.5bp minus 3.5bp}
-\setlength{\abovedisplayshortskip}{3bp plus 0.75bp minus 1.75bp}
-\setlength{\belowdisplayshortskip}{3bp plus 0.75bp minus 1.75bp}
-\setlength{\belowdisplayskip}{6bp plus 1.5bp minus 3.5bp}
 
 % Set up chapter/section/... captions.
 \setcounter{secnumdepth}{3}
