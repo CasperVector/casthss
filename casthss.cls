@@ -201,7 +201,7 @@
 \ctexset{
 	chapter = {
 		beforeskip = {0bp}, afterskip = {18bp plus 0.2ex},
-		number = \arabic{chapter}, nameformat = {}, titleformat = {},
+		number = {\arabic{chapter}}, nameformat = {}, titleformat = {},
 		format = {\zihao{4}\bfseries\heiti\centering}
 	}, section = {
 		beforeskip = {24bp plus 1ex minus 0.2ex},
