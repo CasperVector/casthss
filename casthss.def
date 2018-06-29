@@ -19,7 +19,7 @@
 %   casthss.def
 
 \ProvidesFile{casthss-utf8.def}
-	[2017/03/01 v1.7.4 Labels and captions the casthss document class]
+	[2017/03/01 v1.7.4 Labels and captions for the casthss document class]
 
 \def\label@cauthor{作者姓名：}
 \def\label@cmentor{指导教师：}
