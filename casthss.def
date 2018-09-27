@@ -33,7 +33,11 @@
 \def\cthesisname{博士学位论文}
 \def\ethesisname{dissertation}
 \def\cabstractname{摘\texorpdfstring{\quad}{}要}
-\ctexset{contentsname = {目\texorpdfstring{\quad}{}录}}
+\ctexset{
+	contentsname = {目\texorpdfstring{\quad}{}录},
+	listfigurename = {插\texorpdfstring{\quad}{}图},
+	listtablename = {表\texorpdfstring{\quad}{}格}
+}
 
 \endinput
 % vim:ft=tex:ts=2:sw=2
