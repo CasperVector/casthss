@@ -80,7 +80,7 @@
 \fi
 
 \ifthss@opt@casspace
-	\linespread{1.52}\selectfont
+	\linespread{1.5}\selectfont
 	% Provides utilities for setting TOC format; `titles' applied to avoid
 	% interfering with LaTeX's own title mechanism.
 	\RequirePackage[titles]{tocloft}
@@ -195,8 +195,8 @@
 
 % Set up page layout.
 \geometry{
-	a4paper, hmargin = 3.17cm, top = 2.54cm, bottom = 2.65cm,
-	headheight = 0.4cm, headsep = 0.64cm, footskip = 1.12cm
+	a4paper, hmargin = 3.17cm, top = 3.02cm, bottom = 3.13cm,
+	headheight = 0.4cm, headsep = 0.6cm, footskip = 1.1cm
 }
 
 % Set up chapter/section/... captions.
