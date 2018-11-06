@@ -274,7 +274,7 @@
 \renewcommand{\maketitle}{%
 	\thss@int@pdfmark{\ctitlepagename}{ctitlepage}
 	% Make the title page centered.
-	\begin{titlepage}\begin{center}
+	\begin{titlepage}\begingroup\centering
 		% Confidential level (if any).
 		\unless\ifx\@confidential\empty{%
 			\raggedleft\heiti\bfseries\zihao{3}{\label@confidential}%
@@ -315,12 +315,12 @@
 		\vfill
 		% Date.
 		{\songti\bfseries\zihao{4}\@cdate}
-	\end{center}\end{titlepage}%
+	\par\endgroup\end{titlepage}%
 }
 
 \newcommand{\emaketitle}{%
 	\thss@int@pdfmark{Title page}{etitlepage}
-	\begin{center}
+	\begingroup\centering
 		\bfseries\zihao{4}\linespread{1.9}\selectfont
 		{\zihao{3}\uline{\@etitle}}
 		\vfill
@@ -339,7 +339,7 @@
 		\begin{tabular}[t]{l}\@ementor\\\end{tabular}
 		\vfill
 		{\@eschool}\\{\@edate}
-	\end{center}%
+	\par\endgroup%
 }
 
 % Typeset the Chinese abstract.
