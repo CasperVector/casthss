@@ -90,11 +90,11 @@
 	\setlength{\cftsubsubsecindent}{4\ccwd}
 	\setlength{\cftfigindent}{0pt}
 	\setlength{\cfttabindent}{0pt}
-	\renewcommand{\cftsecfont}{\bfseries}
-	\renewcommand{\cftsubsecfont}{\bfseries}
-	\renewcommand{\cftsubsubsecfont}{\bfseries}
-	\renewcommand{\cftfigfont}{\bfseries}
-	\renewcommand{\cfttabfont}{\bfseries}
+	\renewcommand*{\cftsecfont}{\bfseries}
+	\renewcommand*{\cftsubsecfont}{\bfseries}
+	\renewcommand*{\cftsubsubsecfont}{\bfseries}
+	\renewcommand*{\cftfigfont}{\bfseries}
+	\renewcommand*{\cfttabfont}{\bfseries}
 	% `caption' modifies font size and separator of captions.  `subcaption'
 	% provides functions similar to `subfigure'/`subfig' but does not clash with
 	% `tocloft'; it clashes with `subfigure'/`subfig', but the error message will
@@ -151,7 +151,7 @@
 		\let\thss@tmp@maketitle\maketitle
 		% NOTE: `\hypersetup' must appear before `\maketitle', otherwise it might
 		% not act as expected.
-		\renewcommand\maketitle{\setpdfproperties\thss@tmp@maketitle}
+		\renewcommand{\maketitle}{\setpdfproperties\thss@tmp@maketitle}
 	\fi
 }
 
