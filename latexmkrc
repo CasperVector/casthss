@@ -5,5 +5,5 @@ $pdf_mode = 5;
 $bibtex_use = 1.5;
 $biber = "biber -l zh__pinyin --output-safechars %O %S";
 # latexmk -c 时自动删除 .run.xml 文件。
-@generated_exts = (@generated_exts, 'run.xml');
+$clean_ext = "run.xml";
 
