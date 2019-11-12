@@ -1,3 +1,6 @@
+# Copyright (c) 2019 Casper Ti. Vector
+# Public domain.
+
 @default_files = ('thesis');
 # 使用 xelatex 编译。
 $pdf_mode = 5;
