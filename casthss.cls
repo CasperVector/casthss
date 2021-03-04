@@ -1,7 +1,7 @@
 % UCAS dissertation document class, based on casthss
 %
 % Copyright (c) 2008-2009 solvethis
-% Copyright (c) 2010-2018 Casper Ti. Vector
+% Copyright (c) 2010-2018,2021 Casper Ti. Vector
 %
 % This work may be distributed and/or modified under the conditions of the
 % LaTeX Project Public License, either version 1.3 of this license or (at
@@ -65,7 +65,7 @@
 % fancyhdr provides utilities for setting up headers and footers.
 \RequirePackage{fancyhdr}
 % Provides `\uline' used in `\maketitle' and `\emaketitle'.
-\RequirePackage{ulem}
+\RequirePackage[normalem]{ulem}
 % Provides `\multirow' used in `\emaketitle'.
 \RequirePackage{multirow}
 % `\AtEndOfClass' used to avoid `PDF destination not defined' with setspace.
@@ -103,6 +103,7 @@
 	\DeclareCaptionFont{bfive}{\zihao{5}\bfseries}
 	\DeclareCaptionLabelSeparator{quad}{\quad}
 	\captionsetup{font = bfive, labelsep = quad}
+	\captionsetup[sub]{font = bfive}
 \fi
 
 \ifthss@opt@spacing
@@ -195,8 +196,8 @@
 
 % Set up page layout.
 \geometry{
-	a4paper, hmargin = 3.17cm, top = 3.02cm, bottom = 3.13cm,
-	headheight = 0.4cm, headsep = 0.6cm, footskip = 1.1cm
+	a4paper, hmargin = 3.17cm, top = 2.79cm, bottom = 2.89cm,
+	headheight = 0.4cm, headsep = 0.6cm, footskip = 1.0cm
 }
 
 % Set up chapter/section/... captions.
@@ -206,16 +207,16 @@
 	chapter = {
 		beforeskip = {0bp}, afterskip = {18bp plus 0.2ex},
 		number = {\arabic{chapter}}, nameformat = {}, titleformat = {},
-		format = {\zihao{4}\bfseries\heiti\centering}
+		format = {\zihao{4}\heiti\bfseries\centering}
 	}, section = {
-		beforeskip = {24bp plus 1ex minus 0.2ex},
-		afterskip = {6bp plus 0.2ex}, format = {\bfseries\heiti}
+		beforeskip = {20bp plus 1ex minus 0.2ex},
+		afterskip = {5bp plus 0.2ex}, format = {\heiti\bfseries}
 	}, subsection = {
 		beforeskip = {12bp plus 1ex minus 0.2ex},
-		afterskip = {6bp plus 0.2ex}, format = {\bfseries\heiti}
+		afterskip = {5bp plus 0.2ex}, format = {\heiti\bfseries}
 	}, subsubsection = {
 		beforeskip = {12bp plus 1ex minus 0.2ex},
-		afterskip = {6bp plus 0.2ex}, format = {\bfseries\heiti}
+		afterskip = {5bp plus 0.2ex}, format = {\heiti\bfseries}
 	}
 }
 
@@ -290,7 +291,7 @@
 		\vfill
 		% Title of the thesis.
 		{%
-			\heiti\bfseries\zihao{3}\linespread{1.75}\selectfont
+			\heiti\bfseries\zihao{3}\linespread{1.75}\selectfont%
 			\thss@int@fillinblank{2}{0.84\textwidth}{{\@ctitle}}%
 		}
 		\vfill
