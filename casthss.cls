@@ -183,12 +183,12 @@
 \thss@int@infoitema{emajor}
 \thss@int@infoitema{cschool}
 \thss@int@infoitema{eschool}
-\thss@int@infoitema{mentorlines}
 \thss@int@infoitema{confidential}
 \thss@int@infoitema{ckeywords}
 \thss@int@infoitema{ekeywords}
 \thss@int@infoitemb{cthesisname}
 \thss@int@infoitemb{ethesisname}
+\thss@int@infoitemb{mentorlines}
 \thss@int@infoitemb{cabstractname}
 \thss@int@infoitemb{eabstractname}
 % Set up document information using the `key = value' grammar.
@@ -303,7 +303,7 @@
 				{\label@cauthor}	&
 				\thss@int@fillinblank{1}{\thss@tmp@len}{\@cauthor}	\\
 				{\label@cmentor}	&
-				\thss@int@fillinblank{\@mentorlines}%
+				\thss@int@fillinblank{\mentorlines}%
 					{\thss@tmp@len}{\@cmentor}	\\\\[-1.75em]
 				{\label@cdegree}	&
 				\thss@int@fillinblank{1}{\thss@tmp@len}{\@cdegree}	\\

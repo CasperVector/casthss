@@ -32,6 +32,7 @@
 \def\ctitlepagename{标题页}
 \def\cthesisname{博士学位论文}
 \def\ethesisname{dissertation}
+\def\mentorlines{1}
 \def\cabstractname{摘\texorpdfstring{\quad}{}要}
 \ctexset{
 	contentsname = {目\texorpdfstring{\quad}{}录},
