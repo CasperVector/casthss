@@ -1,4 +1,4 @@
-% UCAS dissertation document class, based on casthss
+% UCAS dissertation document class, based on pkuthss
 %
 % Copyright (c) 2008-2009 solvethis
 % Copyright (c) 2010-2018,2021 Casper Ti. Vector
