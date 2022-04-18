@@ -1,7 +1,7 @@
 % UCAS dissertation document class, based on pkuthss
 %
 % Copyright (c) 2008-2009 solvethis
-% Copyright (c) 2010-2018,2021 Casper Ti. Vector
+% Copyright (c) 2010-2018,2021-2022 Casper Ti. Vector
 %
 % This work may be distributed and/or modified under the conditions of the
 % LaTeX Project Public License, either version 1.3 of this license or (at
@@ -50,8 +50,6 @@
 % Process all class options now.
 \ProcessOptions\relax
 
-% Prevent fontspec (loaded by xeCJK) from interfering with newtxmath.
-\ifthss@opt@casfont\PassOptionsToPackage{no-math}{fontspec}\fi
 % casthss is based on ctexbook; we use `xiao 4' as default font size.
 \LoadClass[UTF8, zihao = -4]{ctexbook}[2014/03/06]
 % ctex 2.x no longer loads ifpdf and ifxetex by itself.
@@ -74,9 +72,30 @@
 
 \ifthss@opt@casfont
 	% Use Times New Roman / Arial according to school regulation.
-	% Option used to prevent newtxtext from manipulating footnote marks.
-	\RequirePackage[defaultsups]{newtxtext}
-	\RequirePackage[cmintegrals, varg]{newtxmath}
+	\RequirePackage{unicode-math}
+	\setmathfont[
+		Extension = .otf,
+		BoldFont = XITSMath-Bold
+	]{XITSMath-Regular}
+	\DeclareSymbolFont{CMlargesymbols}{OMX}{cmex}{m}{n}
+	\let\sumop\relax\let\prodop\relax
+	\DeclareMathSymbol{\sumop}{\mathop}{CMlargesymbols}{"50}
+	\DeclareMathSymbol{\prodop}{\mathop}{CMlargesymbols}{"51}
+
+	\setmainfont[
+		Extension = .otf,
+		UprightFont = *-Regular,
+		BoldFont = *-Bold,
+		ItalicFont = *-Italic,
+		BoldItalicFont = *-BoldItalic
+	]{XITS}
+	\setsansfont[
+		Extension = .otf,
+		UprightFont = *-regular,
+		BoldFont = *-bold,
+		ItalicFont = *-italic,
+		BoldItalicFont = *-bolditalic
+	]{texgyreheros}
 \fi
 
 \ifthss@opt@casspace
