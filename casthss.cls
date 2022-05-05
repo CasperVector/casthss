@@ -94,7 +94,8 @@
 		UprightFont = *-regular,
 		BoldFont = *-bold,
 		ItalicFont = *-italic,
-		BoldItalicFont = *-bolditalic
+		BoldItalicFont = *-bolditalic,
+		Scale = 0.95
 	]{texgyreheros}
 \fi
 
